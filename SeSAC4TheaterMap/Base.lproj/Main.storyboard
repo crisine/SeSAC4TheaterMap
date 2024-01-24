@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PRq-yb-ztt">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -17,43 +17,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDX-lt-Zpe">
-                                <rect key="frame" x="0.0" y="104" width="393" height="712"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDX-lt-Zpe">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rrq-bo-Uh6">
-                                <rect key="frame" x="8" y="67" width="377" height="32"/>
-                                <segments>
-                                    <segment title="전체보기"/>
-                                    <segment title="롯데시네마"/>
-                                    <segment title="메가박스"/>
-                                    <segment title="CGV"/>
-                                </segments>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVP-K4-m1l">
+                                <rect key="frame" x="321" y="746" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="9Hb-W0-FT1"/>
+                                    <constraint firstAttribute="width" constant="64" id="9zf-P3-ASq"/>
+                                    <constraint firstAttribute="width" secondItem="CVP-K4-m1l" secondAttribute="height" multiplier="1:1" id="qze-7d-a6A"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
-                                    <action selector="didTheaterSegmentValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="tIo-H2-lTO"/>
+                                    <action selector="didLocationButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cO4-kB-j7O"/>
                                 </connections>
-                            </segmentedControl>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QDX-lt-Zpe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="E92-f1-Urq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QDX-lt-Zpe" secondAttribute="bottom" id="K9e-WH-RMv"/>
-                            <constraint firstItem="QDX-lt-Zpe" firstAttribute="top" secondItem="rrq-bo-Uh6" secondAttribute="bottom" constant="8" id="h7S-0L-kvL"/>
+                            <constraint firstItem="QDX-lt-Zpe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="M7G-tY-AvR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QDX-lt-Zpe" secondAttribute="bottom" id="bI0-Dx-UMi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CVP-K4-m1l" secondAttribute="bottom" constant="8" id="kDI-XP-bYI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QDX-lt-Zpe" secondAttribute="trailing" id="n8U-rq-6KA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rrq-bo-Uh6" secondAttribute="trailing" constant="8" id="uLz-XF-QTG"/>
-                            <constraint firstItem="rrq-bo-Uh6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="xj9-eu-zYZ"/>
-                            <constraint firstItem="rrq-bo-Uh6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="zZ8-VY-aTp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CVP-K4-m1l" secondAttribute="trailing" constant="8" id="pXh-qJ-ym9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="QSo-Xq-d5f"/>
                     <connections>
+                        <outlet property="locationButton" destination="CVP-K4-m1l" id="L3w-Or-5cJ"/>
                         <outlet property="theaterMapView" destination="QDX-lt-Zpe" id="YVX-Tn-s6u"/>
-                        <outlet property="theaterSegmentedControl" destination="rrq-bo-Uh6" id="Xww-Fe-9td"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="121" y="-34"/>
+            <point key="canvasLocation" x="1046.5648854961833" y="-34.507042253521128"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kSf-ij-XH1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PRq-yb-ztt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="m6y-Rf-Icw">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KTb-om-xbk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iR7-k8-T5O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119.84732824427481" y="-34.507042253521128"/>
         </scene>
     </scenes>
     <resources>
